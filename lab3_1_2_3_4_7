@@ -1,0 +1,83 @@
+1)
+a) Złożoność to O(n^2).
+
+b) Pierwsza pętla wykonuje się n razy, a zagnieżdżona w niej druga pętla wykonuje 
+się n/2 razy (dzielenie całkowite). Ponieważ są zagnieżdżone, mnożymy te wartości przez siebie: n * (n/2) = 1/2 n^2.
+
+c) W notacji Big-O ignorujemy stałe współczynniki (w tym przypadku 1/2). 
+Dlatego po odrzuceniu stałej ostateczna złożoność to po prostu O(n^2).
+
+
+2)
+a) Złożoność to O(n^2).
+
+b) Pierwsza pętla (zewnętrzna) wykonuje się n razy. Druga pętla (wewnętrzna) wykonuje się 2*n razy. 
+Ponieważ pętle są zagnieżdżone, mnożymy ich liczbę iteracji przez siebie: n * 2n = 2n^2.
+
+c) W notacji Big-O pomijamy stałe liczby (w tym przypadku odrzucamy dwójkę). 
+Po pozbyciu się stałej zostaje nam ostateczna złożoność O(n^2).
+
+
+3)
+Podstawiamy n = 2^k. Z tego wynika, ze k = log2(n).
+
+Zapisujemy równanie z użyciem naszej podstawionej wartości:
+T(2^k) = T(2^(k-1)) + O(1)
+
+Rozwijamy to równanie krok po kroku w dół, aż powtórzymy to k razy:
+T(2^k) = T(2^0) + k * O(1)
+
+Z treści zadania wiemy, że T(1) = O(1), a 2^0 to przecież 1. Podstawiamy to
+T(2^k) = O(1) + k * O(1)
+
+Teraz wracamy do naszego poczatkowego n, wstawiając z powrotem k = log2(n):
+T(n) = O(1) + log2(n) * O(1)
+
+W notacji Big-O zawsze pomijamy stałe (czyli O(1)). Po ich odrzuceniu, 
+ostateczna złożonośćІ obliczeniowa tego algorytmu wynosi po prostu:
+O(log n)
+
+
+4)
+Dana jest posortowana tablica 20 liczb:
+[2, 5, 8, 12, 15, 18, 22, 27, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85]
+Szukana liczba to: 55
+
+Lewy indeks: 0, Prawy indeks: 19
+Srodek: (0 + 19) / 2 = 9 (zaokraglamy w dol)
+ind9 = 35
+35<55 wiec odrzucamy lewa polowe i idziemy w prawo
+
+Srodek: (10 + 19) / 2 = 14
+ind14 = 60 
+60>55 wiec odrzucamy prawa polowe i idziemy w lewo
+
+Srodek: (10 + 13) / 2 = 11
+ind11 = 45
+45<55 wiec odrzucamy lewa polowe i idziemy w prawo
+
+Srodek: (12 + 13) / 2 = 12
+ind12 = 50
+50<55 wiec odrzucamy lewa polowe i idziemy w prawo
+
+Srodek: (13 + 13) / 2 = 13
+ind13 = 55
+liczba kroków 5
+
+
+7)
+Ktore podejscie jest szybsze?
+Szybsza jest metoda iteracyjna. W rekurencji program traci sporo czasu na samo wywolywanie 
+funkcji jedna po drugiej i odkladanie ich do pamieci, dlatego dziala to zauwazalnie wolniej.
+
+Jak rozni sie czas wykonania dla malych i duzych wartosci n i C?
+Przy malych danych prawde mowiac nie widac roznicy, oba sposoby dzialaja szybko. 
+Ale przy duzych n i C iteracja wygrywa na luzie. Rekurencja przy duzych liczbach zre duzo wiecej 
+pamieci i dziala wolniej, a jak przesadzimy z wielkoscia danych, to moze w ogole wywalic blad limitu rekurencji.
+
+Kiedy warto uzywac jednego podejscia zamiast drugiego?
+Iteracji lepiej uzywac, jak zalezy nam na wydajnosci i program ma dzialac stabilnie przy duzej ilosci danych. 
+Za to rekurencje z zapamietywaniem (memoizacja) warto wybrac, jak zalezy nam zeby kod byl 
+krotszy i latwiejszy do wymyslenia. Przydaje sie tez, jak wiemy ze nie trzeba przeliczac calej tablicy, 
+bo rekurencja policzy tylko to, co jest bezposrednio potrzebne do wyniku.
+
