@@ -1,17 +1,18 @@
-
 n = int(input("Podaj liczbę graczy: "))
 
 wyniki = []
-
 for i in range(n):
     wynik = int(input(f"Podaj wynik gracza {i+1}: "))
     wyniki.append(wynik)
 
 for i in range(n):
-    for j in range(0, n-i-1):
-        if wyniki[j] > wyniki[j+1]:
-            wyniki[j], wyniki[j+1] = wyniki[j+1], wyniki[j]
+    for j in range(0, n - i - 1):
+        if wyniki[j] > wyniki[j + 1]:
+            # Zamiana miejscami
+            wyniki[j], wyniki[j + 1] = wyniki[j + 1], wyniki[j]
 
-print("\nPosortowana lista wyników:", wyniki)
-print("Najniższy wynik:", wyniki[0])
-print("Najwyższy wynik:", wyniki[-1])
+print("Posortowana lista wyników:", wyniki)
+
+if n > 0:
+    print("Najniższy wynik:", wyniki[0])
+    print("Najwyższy wynik:", wyniki[-1])

@@ -1,0 +1,13 @@
+# Porównanie sortowania przez scalanie (Merge Sort) i bąbelkowego (Bubble Sort):
+#
+# 1. Szybkość: Merge Sort jest o wiele szybszy, zwłaszcza przy dużej ilości danych. 
+#    Bąbelkowe bardzo zwalnia, gdy mamy dużo wyników do posortowania.
+#
+# 2. Sposób działania: Bąbelkowe polega na ciągłym zamienianiu sąsiednich liczb. 
+#    Scalanie działa sprytniej – dzieli listę na mniejsze kawałki, sortuje je i łączy z powrotem.
+#
+# 3. Pamięć: Bąbelkowe nie potrzebuje dodatkowego miejsca. Scalanie potrzebuje 
+#    trochę więcej pamięci RAM, żeby tymczasowo przechować dzielone części listy.
+#
+# W skrócie: Merge Sort to profesjonalne rozwiązanie do dużych zadań, 
+# a bąbelkowe to prosty sposób używany głównie na początku nauki programowania.
