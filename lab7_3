@@ -1,0 +1,47 @@
+
+# Rozwiązanie zadania 3 - Algorytm Quick Select
+
+# 1. Zastosowanie algorytmu krok po kroku oraz 2. Sposób aktualizaji k:
+# (Jako pivot zawsze wybeiramy pierwszy element z tablicy)
+
+# Krok 1:
+# Tablica: [12, 3, 5, 7, 4, 19, 26], szukamy k = 3
+# Pivot: 12
+# Podział:
+# - Mniejsze: [3, 5, 7, 4] (4 elementy)
+# - Równe: [12] (1 element)
+# - Większe: [19, 26] (2 elemnty)
+# Aktualizcja k: Ilość elementów w "Mniejsze" (4) jest >= k (3). Szukany element jest w tej grupie. k pozostaje bez zmian (k = 3).
+
+# Krok 2:
+# Tablica: [3, 5, 7, 4], szukamy k = 3
+# Pivot: 3
+# Podział:
+# - Mniejsze: [] (0 elementow)
+# - Równe: [3] (1 element)
+# - Większe: [5, 7, 4] (3 elementy)
+# Aktualizacja k: Szukane k (3) jest wieksze niż suma elementów w "Mniejsze" i "Równe" (0 + 1 = 1). Szukamy w grupie "Większe". Nowe k = 3 - 0 - 1 = 2.
+
+# Krok 3:
+# Tablica: [5, 7, 4], szukamy k = 2
+# Pivot: 5
+# Podział:
+# - Mniejsze: [4] (1 element)
+# - Równe: [5] (1 element)
+# - Większe: [7] (1 element)
+# Aktualizacja k: Mamy 1 element w "Mniejsze". Szukamy k = 2. Poniewaz k jest większe od liczby elementow w "Mniejsze" (2 > 1), ale mniejsze/równe sumie "Mniejsze" i "Równe" (2 <= 1 + 1), to szukany element to wlasnie nasz pivot. Koniec.
+
+
+# 3. Tabela kroków algorytmu:
+
+# Krok   Tablica                      Pivot   Mniejsze         Równe   Większe       k
+# 1      [12, 3, 5, 7, 4, 19, 26]     12      [3, 5, 7, 4]     [12]    [19, 26]      3
+# 2      [3, 5, 7, 4]                 3       []               [3]     [5, 7, 4]     2
+# 3      [5, 7, 4]                    5       [4]              [5]     [7]           2
+
+
+# 4. Końcowy wynik wraz z uzasadnieniem:
+
+# Koncowy wynik: 5
+
+# Uzasadnienie: Algorytm w kazdym kroku odrzucał liczby, w ktorych na pewno nie było rozwiązania. W kroku 3 zredukowalismy problem do znalezienia 2-go najmniejszego elementu w małej tablicy [5, 7, 4]. Wybralismy pivot 5. Okazalo się, że tylko jedna liczba jest od niego mniejsza (4), wiec pivot 5 musi być dokładnie 2-gim najmnieszym elementem w tej podtablicy. Z tego wynika, ze w początkowej, pełnej tablicy jest on 3-cim najmniejszym elementem.
